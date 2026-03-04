@@ -23,15 +23,30 @@ It wrote the code, ran away, and now the game is unplayable.
    - Run `pytest` in your terminal.
    - Keep fixing until all tests pass!
 
-## 📝 Document Your Experience
+# 📝 Document Your Experience
 
-- [ ] Describe the game's purpose.
-- [ ] Detail which bugs you found.
-- [ ] Explain what fixes you applied.
+## Describe the game's purpose.
+A debugging project where I used GitHub Copilot to identify and fix logic errors in a Python Streamlit game
+
+## Detail which bugs you found.
+Bug 1: Incorrect Hint Logic. I guessed -6 and the secret was 60. The game told me "Go LOWER!" Expected: Since -6 is less than 60, it should have said "Go HIGHER!"
+
+Bug 2: The logic is currently flipped—it's telling you to go "HIGHER" when your guess is already higher than the secret.
+
+Bug 3: Broken Scoring. The game started with a score of -30 and ended at -35 without me making successful moves. Expected: The score should start at 0 (or a positive number) and should not go negative.
+
+Bug 4: Immediate "Out of Attempts" Error. Even though I had 7 attempts left in the debug info, the game displayed a red "Out of attempts!" box immediately. Expected: The game should only show "Out of attempts" when the counter hits 0.
+
+## Explain what fixes you applied.
+
+Fixed the check_guess function so hints correctly guide the player higher or lower.
+Fixed the session state initialization so the game doesn't end immediately on start.
+Encountered a ModuleNotFoundError when running tests. Fixed it by using python3 -m pytest to ensure the project root was in the Python.
+Fix it end's the game 1 try early.
 
 ## 📸 Demo
 
-- [ ] [Insert a screenshot of your fixed, winning game here]
+
 
 ## 🚀 Stretch Features
 
